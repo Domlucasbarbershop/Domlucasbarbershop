@@ -45,6 +45,7 @@ a {
 img,
 svg {
   max-width: 100%;
+  height: auto;
 }
 
 [data-admin-only],
@@ -597,6 +598,29 @@ body.sidebar-open .sidebar-overlay {
   justify-content: center;
   padding: 20px 14px;
   overflow-y: auto;
+}
+
+body.auth-page {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.auth-card.login-container {
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.auth-page .login-container input,
+.auth-page .login-container button {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .auth-page .muted {
@@ -1344,6 +1368,16 @@ body.sidebar-open .sidebar-overlay {
   .slot-btn {
     min-height: 38px;
     font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-card.login-container {
+    padding: 16px;
+  }
+
+  .auth-page h1 {
+    font-size: 22px;
   }
 }
 
