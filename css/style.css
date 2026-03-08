@@ -27,6 +27,7 @@ body {
   min-height: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -1031,10 +1032,22 @@ li + li {
 }
 
 @media (max-width: 640px) {
+  input,
+  select,
+  textarea,
+  button {
+    font-size: 16px;
+  }
+
+  label,
+  .muted {
+    font-size: 14px;
+  }
+
   .container {
-    width: min(1120px, 94vw);
-    padding-top: 14px;
-    padding-bottom: 26px;
+    width: min(1120px, 96vw);
+    padding-top: 18px;
+    padding-bottom: 30px;
   }
 
   h1 {
@@ -1086,17 +1099,32 @@ li + li {
   }
 
   .auth-page {
-    padding: 14px;
+    align-items: flex-start;
+    padding: 12px;
   }
 
   .auth-hero,
   .auth-card {
-    padding: 20px;
-    border-radius: 24px;
+    padding: 18px;
+    border-radius: 20px;
   }
 
   .auth-hero h1 {
-    font-size: 34px;
+    font-size: 30px;
+  }
+
+  .auth-card-top h1 {
+    font-size: 24px;
+  }
+
+  .auth-card-top h2 {
+    font-size: 22px;
+  }
+
+  .auth-logo-slot {
+    width: 88px;
+    height: 88px;
+    margin-bottom: 10px;
   }
 
   .auth-tab-wrap {
@@ -1109,7 +1137,7 @@ li + li {
 
   .auth-tab-btn {
     flex: 0 0 auto;
-    min-width: 120px;
+    min-width: 114px;
     padding: 0 12px;
   }
 
@@ -1219,6 +1247,102 @@ li + li {
 
   .slot-btn {
     min-height: 38px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .sidebar {
+    width: 88vw;
+    padding: 14px 10px;
+  }
+
+  .sidebar .brand {
+    font-size: 17px;
+    gap: 8px;
+  }
+
+  .sidebar .brand::before {
+    width: 32px;
+    height: 32px;
+  }
+
+  .sidebar .nav a {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .sidebar-user span {
+    font-size: 12px;
+  }
+
+  .sidebar .btn-secondary {
+    min-height: 42px;
+    font-size: 13px;
+  }
+
+  .content-area .topbar .brand {
+    font-size: 14px;
+  }
+
+  .menu-toggle {
+    width: 40px;
+    min-height: 40px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    width: 96vw;
+    padding-top: 14px;
+    padding-bottom: 20px;
+  }
+
+  .auth-page {
+    padding: 8px;
+  }
+
+  .auth-hero,
+  .auth-card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .auth-card-top h1 {
+    font-size: 20px;
+  }
+
+  .auth-card-top h2 {
+    font-size: 18px;
+  }
+
+  .auth-tab-btn {
+    min-width: 96px;
+    min-height: 38px;
+    font-size: 12px;
+    padding: 0 10px;
+  }
+
+  .slots-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .slot-btn {
+    min-height: 36px;
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+
+  .calendar-day-btn {
+    min-height: 30px;
+    font-size: 11px;
+    border-radius: 7px;
+  }
+
+  .sidebar .nav a {
+    padding: 9px 10px;
     font-size: 11px;
   }
 }
