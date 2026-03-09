@@ -1,4 +1,43 @@
 window.CommonUI = {
+  syncResponsiveTable(table) {
+    if (!table) return;
+
+    const headers = Array.from(table.querySelectorAll('thead th')).map((th) => th.textContent.trim());
+    const rows = table.querySelectorAll('tbody tr');
+
+    rows.forEach((row) => {
+      const cells = Array.from(row.children);
+      const singleCell = cells.length === 1 && cells[0].tagName === 'TD';
+
+      cells.forEach((cell, index) => {
+        if (cell.tagName !== 'TD') return;
+
+        if (singleCell || Number(cell.colSpan || 1) > 1) {
+          cell.classList.add('table-empty-cell');
+          cell.removeAttribute('data-label');
+          return;
+        }
+
+        cell.classList.remove('table-empty-cell');
+        cell.setAttribute('data-label', headers[index] || '');
+      });
+    });
+  },
+
+  enhanceResponsiveTables(root = document) {
+    const tables = root.querySelectorAll('.table');
+
+    tables.forEach((table) => {
+      this.syncResponsiveTable(table);
+
+      if (table.dataset.responsiveObserved === 'true') return;
+      table.dataset.responsiveObserved = 'true';
+
+      const observer = new MutationObserver(() => this.syncResponsiveTable(table));
+      observer.observe(table, { childList: true, subtree: true });
+    });
+  },
+
   async setupLayout(userInfo) {
     const safeUser = {
       nome: userInfo?.nome || 'Usuario',
@@ -121,5 +160,6 @@ window.CommonUI = {
     });
 
     setSidebarState(false);
+    this.enhanceResponsiveTables(document);
   }
 };
