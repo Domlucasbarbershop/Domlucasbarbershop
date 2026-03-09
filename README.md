@@ -1,4 +1,4 @@
-# integralissolucoes
+# DomLucasBarberShop
 
 Sistema web completo para gerenciamento de barbearia com:
 - HTML, CSS e JavaScript puro
